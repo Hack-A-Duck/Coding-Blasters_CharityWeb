@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <title>Website Name</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Francois+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
+  <style>
+  body {
+    font: 400 15px Lato, sans-serif;
+    line-height: 1.8;
+    color: #818181;
+  }
+  h1{
+  font-size: 19px;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+	font-family: 'Francois One', sans-serif;
+  }
+  
+  h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+	font-family: 'Mansalva', cursive;
+  }  
+  .jumbotron {
+    background-color: #23EAC6;
+    color: #fff;
+    padding: 100px 25px;
+    font-family: Montserrat, sans-serif;
+  }
+  .container-fluid {
+    padding: 60px 50px;
+  }
+  .bg-grey {
+    background-color: #f6f6f6;
+  }
+  .logo-small {
+    color: #23EAC6;
+    font-size: 50px;
+  }
+  .logo {
+    color: #23EAC6;
+    font-size: 200px;
+  }
+  .thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+  }
+  .carousel-control.right, .carousel-control.left {
+    background-image: none;
+    color: #23EAC6;
+  }
+  .carousel-indicators li {
+    border-color: #23EAC6;
+  }
+  .carousel-indicators li.active {
+    background-color: #23EAC6;
+  }
+  .item h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 0;
+  }
+  .item span {
+    font-style: normal;
+  }
+  .panel {
+    border: 1px solid #23EAC6; 
+    border-radius:0 !important;
+    transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+    border: 1px solid #f4511e;
+    background-color: #fff !important;
+    color: #23EAC6;
+  }
+  .panel-heading {
+    color: #fff !important;
+    background-color: #23EAC6 !important;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .panel-footer {
+    background-color: white !important;
+  }
+  .panel-footer h3 {
+    font-size: 32px;
+  }
+  .panel-footer h4 {
+    color: #aaa;
+    font-size: 14px;
+  }
+  .panel-footer .btn {
+    margin: 15px 0;
+    background-color: #23EAC6;
+    color: #fff;
+  }
+  .navbar {
+    margin-bottom: 0;
+    background-color: #23EAC6;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #23EAC6 !important;
+    background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+  }
+  footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #23EAC6;
+  }
+  .slideanim {visibility:hidden;}
+  .slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+      width: 100%;
+      margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+      font-size: 150px;
+    }
+  }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.html">ABOUT</a></li>
+        <li><a href="Drive.html">DriveS</a></li>
+        <li><a href="drive.html">DRIVES</a></li>
+		<li><a href="donate.html">DONATE/COLLEVT FUNDS</a></li>
+        <li><a href="index.html">REVIEWS</a></li>
+		
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="jumbotron text-center">
+  <h1>Website Name</h1> 
+  <p>Charity begins at hame, but shouldna end there.</p> 
+  <form>
+    <div class="input-group">
+      <input type="email" class="form-control" size="50" placeholder="email" required>
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-danger">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center">
+  <h1>Drives</h1>
+  <h1>Help Offered</h1>
+  <br>
+  
+  
+</div>
+<!-- Container (Pricing Section) -->
+<div id="meal" class="container-fluid">
+  <div class="text-center">
+    <h1>Go through the gallery of drives</h1>
+    
+  </div>
+  <div class="row slideanim">
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Blood Donation:
+</h1>
+		 
+        </div>
+        <div class="panel-body">
+           <img src="img/blood.jpg" class="img-rounded" alt="Cinque Terre"> 
+        </div>
+        <div class="panel-footer">
+	<h1>More</h1>
+		<p>Bring life back to power. Make blood donation your responsibility”
+With this slogan wings organization successful done a blood donation camp
+Thank you to all for giving us such a beautiful response
+Because of your support and care, we made this day👍
+“Your little effort can give others a second chance to live life.”
+And that’s the reason we successfully conducted this campaign
+We are always ready to support every person, in every situation
+And that is a reason in this pandemic period still wings getting tremendous response
+</p><br>
+          
+        </div>
+      </div>      
+    </div>     
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Sanitary Napkins:
+</h1>
+		
+        </div>
+        <div class="panel-body">
+           <img src="img/sanitary.jpg" class="img-rounded" alt="Cinque Terre"> 
+        </div>
+        <div class="panel-footer">
+	<h1>More</h1>
+		<p>We started a sanitary and medical kit distribution drive
+The education officer said that the girls had to drop out for reasons like lack of awareness about menstruation, post-puberty changes in the body, and security concerns. Many girls drop out of school altogether once they begin menstruating. Should young women miss twenty percent of school days in a given year due to a lack of facilities or a lack of information or a lack of sanitary products?
+Join this Movement and Spread happiness
+</p><br>
+          
+        </div>
+      </div>      
+    </div>    
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Child Education:
+</h1>
+		 
+        </div>
+        <div class="panel-body">
+           <img src="img/education.jpg" class="img-rounded" alt="Cinque Terre"> 
+        </div>
+        <div class="panel-footer">
+	<h1>More</h1>
+		<p>The fact is quite strange that in spite of the number of reported incidents of female infanticide, child abuse, and disgraceful acts against women, the number of girl children adopted in India is much more than of boys, in the last three years.
+Education is a step by step process of gaining knowledge the aim of education is to bring changes not only in the amount of knowledge gained but also in the abilities to think and to acquire habits, skills, and attitude which characterize an individual who is socially accepted and adjusted. However, only bookish knowledge does not serve the purpose of wisdom enhancement especially when our children are dealing with unnecessary stress of poverty, stress, hunger, and exploitation.
+You can help poor children to complete their dreams. Giving them your precious time and a little bit of care. We go to the slum area and arrange workshops for the children to teach them drawing, painting, and all other extracurricular activities.
+</p><br>
+          
+        </div>
+      </div>      
+    </div>    
+  </div>
+  
+  <div class="row slideanim">
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Food
+</h1>
+		  
+        </div>
+        <div class="panel-body">
+           <img src="img/food.jpg" class="img-rounded" alt="Cinque Terre"> 
+        </div>
+        <div class="panel-footer">
+	<h1>More</h1>
+		<p>Most of our citizenry believes that hunger only affects people who are lazy or people who
+are just looking for a handout, people who don’t want to work, but, sadly, that is not true.
+Over one-third of our hungry people are innocent children who are members of households…
+At the end of life, we will not be judged by how many degrees we have received, how much we have made, how many great things we have done.
+We will be judged by I was hungry, and you gave me something to eat!
+Wings food distribution activity!
+We believe in spread happiness.
+</p><br>
+          
+        </div>
+      </div>      
+    </div>     
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Animal</h1>
+		  
+        </div>
+        <div class="panel-body">
+           <img src="img/animal.jpg" class="img-rounded" alt="Cinque Terre"> 
+        </div>
+        <div class="panel-footer">
+	<h1>More</h1>
+		<p>We are grateful to be able to bring meals in any weather, 365 days a year. The street becomes a virtual dinner table for thousands of animals Your donation will help us keep the meals and water flowing each day, and we are hard at work on sheltering, spay/neuter and adoptions at the same time. Whether you make a one-time donation or enroll to help all year long, we are truly grateful for your help.!!! </p><br>
+          
+        </div>
+      </div>      
+    </div>         
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>New Drive Launching soon</h1>
+		 
+        </div>
+        <div class="panel-body">
+           <img src="img/m1.jpg" class="img-rounded" alt="Cinque Terre"> 
+        </div>
+        <div class="panel-footer">
+	<h1>More</h1>
+		<p>Launching Soon</p><br>
+          
+        </div>
+      </div>      
+    </div>     
+  </div>
+  
+  
+  </div>
+  
+      
+  
+
+<div id="contact" class="container-fluid bg-grey">
+  <h1 class="text-center">CONTACT</h1>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Delhi, India</p>
+      <p><span class="glyphicon glyphicon-phone"></span> 98548448483</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+    </div>
+    <div class="col-sm-7 slideanim">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(Drive) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // PrDrive default anchor click behavior
+      Drive.prDriveDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+</body>
+</html>
