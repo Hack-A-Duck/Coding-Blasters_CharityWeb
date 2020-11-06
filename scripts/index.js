@@ -12,6 +12,7 @@ $(document).ready(function(){
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
 
     // Add smooth scrolling to all links in navbar + footer link
     $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
@@ -45,4 +46,31 @@ $(document).ready(function(){
           }
       });
     });
+
+    $("#send").click(function() {
+      var name = $("#name").val();
+      var email = $("#email").val();
+      var comments = $("#comments").val();
+      if(email === "" || name === "" || comments === "") { alert("All fields are mandatory!"); }
+      else if(ValidateEmail(email)) {}
+      else if(comments.length < 50) { alert("Please enter atleast 50 characters!"); }
+      else {
+        db.collection("contactus").doc().set({
+          name: name,
+          email: email,
+          comments: comments
+        }).then(function() {
+          alert("Your Query is sent Successfully! We will contact you soon.");
+        });
+      }
+    });
+
+    function ValidateEmail(email) {
+      if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+          return(false);
+      }
+      alert("You have entered an invalid email address!");
+      return(true);
+    }
+
   })
