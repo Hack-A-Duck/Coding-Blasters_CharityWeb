@@ -142,4 +142,22 @@ $(document).ready(function(){
     }
   });
 
+  $("#fbsub").click(function() {
+    var fbname = $("#fbname").val();
+    var fbemail = $("#fbemail").val();
+    var feedbk = $("#feedback").val();
+    if(fbemail === "" || fbname === "" || feedbk === "") { alert("All fields are mandatory!"); }
+    else if(ValidateEmail(fbemail)) {}
+    else {
+      db.collection("feedback").doc().set({
+        name: fbname,
+        email: fbemail,
+        feedback: feedbk
+      }).then(function() {
+        $('#myModal3').modal('hide');
+        alert("Thanks for your Feedback!");
+      });  
+    }
+  });
+
 })
