@@ -73,7 +73,6 @@ $(document).ready(function(){
       return(true);
     }
 
-
     $("#paysub").click(function() {
       var pname = $("#payname").val();
       var pemail = $("#payemail").val();
@@ -81,7 +80,7 @@ $(document).ready(function(){
       var don = $("#payamount").val();
       if(pemail === "" || pname === "" || pnum === "" || don === "") { alert("All fields are mandatory!"); }
       else if(ValidateEmail(pemail)) {}
-      else if(pnum < 6000000000) { alert("Please enter valid mobile number!"); }
+      else if(pnum < 6000000000 || pnum > 9999999999) { alert("Please enter valid mobile number!"); }
       else {
         $('#myModal').modal('hide');
         var options = {
@@ -118,6 +117,29 @@ $(document).ready(function(){
         var propay = new Razorpay(options);
         propay.open();
       }
+  });
+
+  $("#colsub").click(function() {
+    var colname = $("#colname").val();
+    var colemail = $("#colemail").val();
+    var colnum = $("#colnum").val();
+    var reason = $("#reason").val();
+    if(colemail === "" || colname === "" || colnum === "" || reason === "") { alert("All fields are mandatory!"); }
+    else if(ValidateEmail(colemail)) {}
+    else if(colnum < 6000000000 || colnum > 9999999999) { alert("Please enter valid mobile number!"); }
+    else if(reason.length < 100) { alert("Please mention reason is atleast 100 characters!"); }
+    else {
+      db.collection("collectReq").doc().set({
+        name: colname,
+        email: colemail,
+        mobile: colnum,
+        reason: reason,
+        emergency: $("input[name='emer']:checked").attr('id')
+      }).then(function() {
+        $('#myModal2').modal('hide');
+        alert("Collect Request successfully received! We will contact you soon.");
+      });  
+    }
   });
 
 })
