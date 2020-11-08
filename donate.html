@@ -67,10 +67,10 @@
 		      <p>Donate so we can contibute more to society</p>
         </div>
         <div class="panel-body">
-           <img src="img/m1.jpg" class="img-rounded" alt="Cinque Terre"> 
+           <img src="img/donation.jpg" class="img-rounded" alt="Cinque Terre" width="75%" height="300px"> 
         </div>
         <div class="panel-footer">
-	        <h1>Button</h1>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Donate</button>
         </div>
       </div>      
     </div>     
@@ -81,10 +81,10 @@
 		      <p>Fill the form to help u with fund and we will get back to you</p>
         </div>
         <div class="panel-body">
-           <img src="img/m1.jpg" class="img-rounded" alt="Cinque Terre"> 
+           <img src="img/collect.png" class="img-rounded" alt="Cinque Terre" width="75%" height="300px"> 
         </div>
         <div class="panel-footer">
-	        <h1>Form link</h1>	
+	        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">Collect Request</button>
         </div>
       </div>      
     </div>    
@@ -95,10 +95,10 @@
 		      <p>Your feedback is important for us</p>
         </div>
         <div class="panel-body">
-           <img src="img/m1.jpg" class="img-rounded" alt="Cinque Terre"> 
+           <img src="img/feedback.jpg" class="img-rounded" alt="Cinque Terre" width="75%" height="300px"> 
         </div>
         <div class="panel-footer">
-	        <h1>form link</h1>    
+	        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3">Feedback Form</button>    
         </div>
       </div>      
     </div>    
@@ -127,15 +127,103 @@
       <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
       <div class="row">
         <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-right" type="submit">Send</button>
+          <button class="btn btn-default pull-right" id="send" type="submit">Send</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<div id="myModal" class="modal fade parent" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h1 class="modal-title">Donation Form</h1>
+      </div>
+      <div class="modal-body">
+        <form id="paydet">
+          <label for="fname"> Name:</label>
+          <input type="text" id="payname" placeholder="John Doe">
+          <label for="email">Email:</label>
+          <input type="email" id="payemail" placeholder="john@gamil.com">
+          <label for="number">Phone No.:</label>
+          <input type="number" id="paynum" placeholder="987xxxxxxxx">
+          <label for="amount">Donation Amount:</label>
+          <input type="number" id="payamount" placeholder="Enter donation amount in INR">
+        </form> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button class="btn btn-primary" id="paysub" type="submit" value="Submit">Proceed</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="myModal2" class="modal fade parent" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h1 class="modal-title">Collect Request Form</h1>
+      </div>
+      <div class="modal-body">
+        <form id="collectreq">
+          <label for="fname">Name:</label>
+          <input type="text" id="colname" placeholder="John Doe">
+          <label for="email">Email:</label>
+          <input type="email" id="colemail" placeholder="john@gamil.com">
+          <label for="number">Phone No.:</label>
+          <input type="number" id="colnum" placeholder="987xxxxxxxx">
+          <label for="Comments">Why you want collection (Pls. mention in detail):</label><br>
+          <textarea id="reason" name="reason" cols="70" rows="5"></textarea>
+          <label for="Comments">Is this an emergency case?</label><br>
+          <input type="radio" name="emer" id="Yes">&nbsp;Yes &emsp;
+          <input type="radio" name="emer" id="No" checked="checked">&nbsp;No
+        </form> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button class="btn btn-primary" id="colsub" type="submit" value="Submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="myModal3" class="modal fade parent" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h1 class="modal-title">Feedback Form</h1>
+      </div>
+      <div class="modal-body">
+        <form id="collectreq">
+          <label for="fname">Name:</label>
+          <input type="text" id="fbname" placeholder="John Doe">
+          <label for="email">Email:</label>
+          <input type="email" id="fbemail" placeholder="john@gamil.com">
+          <label for="feedback">Feedback:</label><br>
+          <textarea id="feedback" name="feedback" cols="70" rows="5"></textarea>
+        </form> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button class="btn btn-primary" id="fbsub" type="submit" value="Submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script src="scripts/donate.js"></script>
 
 </body>

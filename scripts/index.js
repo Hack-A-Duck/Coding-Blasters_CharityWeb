@@ -1,18 +1,19 @@
 $(document).ready(function(){
-    
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyAALA5fAV_gRE54KuvildKoFmcnm6OqDK4",
-        authDomain: "charity-website-hackaduck.firebaseapp.com",
-        databaseURL: "https://charity-website-hackaduck.firebaseio.com",
-        projectId: "charity-website-hackaduck",
-        storageBucket: "charity-website-hackaduck.appspot.com",
-        messagingSenderId: "562730062248",
-        appId: "1:562730062248:web:c1a7c5e41c348568118d9d"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    var db = firebase.firestore();
+
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAALA5fAV_gRE54KuvildKoFmcnm6OqDK4",
+    authDomain: "charity-website-hackaduck.firebaseapp.com",
+    databaseURL: "https://charity-website-hackaduck.firebaseio.com",
+    projectId: "charity-website-hackaduck",
+    storageBucket: "charity-website-hackaduck.appspot.com",
+    messagingSenderId: "562730062248",
+    appId: "1:562730062248:web:c1a7c5e41c348568118d9d"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore();
+  
 
     // Add smooth scrolling to all links in navbar + footer link
     $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
