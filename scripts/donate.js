@@ -123,8 +123,9 @@ $(document).ready(function(){
     var colname = $("#colname").val();
     var colemail = $("#colemail").val();
     var colnum = $("#colnum").val();
+    var colamount = $("#colamount").val();
     var reason = $("#reason").val();
-    if(colemail === "" || colname === "" || colnum === "" || reason === "") { alert("All fields are mandatory!"); }
+    if(colemail === "" || colname === "" || colnum === "" || reason === "" || colamount === "") { alert("All fields are mandatory!"); }
     else if(ValidateEmail(colemail)) {}
     else if(colnum < 6000000000 || colnum > 9999999999) { alert("Please enter valid mobile number!"); }
     else if(reason.length < 100) { alert("Please mention reason is atleast 100 characters!"); }
@@ -134,7 +135,8 @@ $(document).ready(function(){
         email: colemail,
         mobile: colnum,
         reason: reason,
-        emergency: $("input[name='emer']:checked").attr('id')
+        emergency: $("input[name='emer']:checked").attr('id'),
+        amount : colamount
       }).then(function() {
         $('#myModal2').modal('hide');
         alert("Collect Request successfully received! We will contact you soon.");

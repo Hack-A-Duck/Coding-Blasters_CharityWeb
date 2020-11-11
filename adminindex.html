@@ -1,89 +1,82 @@
 <html>
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <script src="scripts/adminindex.js"></script>
-            <title>
-                Website Name
-            </title>
-            <script src="main.js"></script>
-         </head>
-         <body>
-         <br>
-         <div class="container">
-                <div class="page-header">
-                  <center>
-                        <h1 class="text-primary">Transaction Details</h1>
-                    </center>      
-                </div>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>ADMIN | Charity - Web</title>
+    </head>
+    
+    <body>
+        <a style="position: fixed; left: 1em; top: 1em; font-size: 20px;" href="index.html"><button style="background: transparent; border: none;" class="fa fa-home"> Home</button></a>
+        <a style="position: fixed; right: 1em; top: 1em; font-size: 20px;" onclick="logout()"><button style="background: transparent; border: none;" class="fa fa-sign-out"> Logout</button></a>
+        <br>
+        <div class="container">
+            <div class="page-header">
                 <center>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <button type="button" class="btn btn-primary btn-lg " data-toggle="collapse" data-target="#input">
-                                    Enter  Data
-                                </button>
-                                <button class="btn btn-warning btn-lg" type="button" data-toggle="collapse" data-target="#edit">
-                                        Edit  Detail
-                                    </button>
-                                <button class="btn btn-outline-info btn-lg" type="button" data-toggle="collapse" data-target="#delete">
-                                    Delete Data
-                                </button>  
-                            </div>
-                        </div>
-                        <div class="collapse collapseCheck" id="input">
-                                    <br>
-                                    <form class="form-inline">
-                                        <input placeholder="Clientname" class="form-control" id="name"/>
-										<input placeholder="Phone Number" class="form-control" id="number"/>
-                                        <input placeholder="email" class="form-control" id="email"/>
-                                        <input placeholder="Amount" class="form-control" id="amount" />
-                                        <input placeholder="Type" class="form-control" id="type"/>
-                                        <submit type="submit" class="btn btn-warning" onclick = "input_data() ">Insert</submit>
-                                    </form>
-                        </div>
-                
-                        <div class="collapse collapseCheck" id="edit">
-                                    <form class="form-inline">
-                                       <input placeholder="Clientname" class="form-control" id="name1"/>
-										<input placeholder="Phone Number" class="form-control" id="number1"/>
-                                        <input placeholder="email" class="form-control" id="email1"/>
-                                        <input placeholder="Amount" class="form-control" id="amount1" />
-                                        <input placeholder="Type" class="form-control" id="type1"/>
-                                        <submit type="submit" class="btn btn-warning" onclick = "edit_data()">Edit</submit>
-                                    </form>
-                        </div> 
-                                
-                        <div class="collapse collapseCheck" id="delete">
-                                        <br>
-                                        <form class="form-inline">
-                                            <submit type="submit" class="btn btn-warning" onclick = "delete_data() ">Delete</submit>
-                                        </form>
-                        </div>
-                        </center>
-            </br>
-                        <div class="row">
-                            <div class="col-md-12">
-                              <table class = "table">
-                                    <thead>
-                                            <tr>
-                                              <th></th>
-                                              <th>Name</th>
-                                              <th>Phone Number</th>
-                                              <th>Email</th>
-                                              <th>Amount</th>
-											  <th>Type</th>
-                                            </tr>
-                                          </thead>
-                                          <tbody id="tableid">
-                                            
-                                          </tbody>
-                              </table>
-                            </div>
-                        </div>
-                    </div>     
-         </body>
+                    <h1 class="text-primary">Donations / Collection Requests</h1>
+                </center>      
+            </div>
+            <center>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-primary btn-lg" id="refresh">
+                            <i class="fa fa-refresh"></i> Refresh
+                        </button>
+                        <button class="btn btn-warning btn-lg" type="button" data-toggle="collapse" data-target="#edit">
+                            Edit  Detail
+                        </button>
+                        <button class="btn btn-danger btn-lg" type="button" data-toggle="collapse" data-target="#delete">
+                            Delete Data
+                        </button>  
+                    </div>
+                </div>
+
+                <div class="collapse collapseCheck" id="edit">
+                    <br>
+                    <form class="form-inline">
+                        <input placeholder="Clientname" class="form-control" id="name1"/>
+                        <input placeholder="Phone Number" class="form-control" id="number1"/>
+                        <input placeholder="Email" class="form-control" id="email1"/>
+                        <input placeholder="Amount" class="form-control" id="amount1" />
+                        <input placeholder="Type" class="form-control" id="type1"/>
+                        <submit type="submit" class="btn btn-warning" onclick = "edit_data()">Edit</submit>
+                    </form>
+                </div>
+
+                <div class="collapse collapseCheck" id="delete">
+                    <br>
+                    <form class="form-inline">
+                        <submit type="submit" class="btn btn-warning" onclick = "delete_data()">Delete</submit>
+                    </form>
+                </div>
+            </center>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Phone Number</th>
+                                <th>Email</th>
+                                <th>Amount</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableid">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+    <script src="scripts/adminindex.js"></script>
 </html>

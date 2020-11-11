@@ -60,7 +60,7 @@ body {
     color: #333;
 }
 
-button {
+.btn {
     background-image: linear-gradient(to bottom right, #04d6dd, #f606ff);
     color: white;
     width: 150px;
@@ -78,7 +78,11 @@ button {
     transition: all 0.3s ease;
 }
 
-button:hover {
+.btn>span {
+    margin: auto;
+}
+
+.btn:hover {
     transform: translateY(7px);
 }
 
