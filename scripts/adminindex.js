@@ -89,22 +89,51 @@ $(document).ready(function(){
     }
 
     edit_data=()=>{
-        let t=document.getElementById("tableid");
-        let n=t.getElementsByClassName("c");
-        for(let i=0;i<=n.length;i++)
+        let t = document.getElementById("tableid");
+        let n = t.getElementsByClassName("c");
+        let count=0;
+        for(let i=0 ; i<n.length ; i++)
         {
-            if(n[i].checked)
+            if(n[i].checked) { count++; }
+        }
+        if(count < 1) { alert("Please select an entry to edit"); }
+        else if(count > 1) { alert("Edit only 1 entry at a time!"); }
+        else {
+            for(let i=0 ; i<n.length ; i++)
             {
-                let rows = "";
-                const name=document.getElementById("name1").value;
-                const roll=document.getElementById("rollno1").value;
-                const year=document.getElementById("year1").value;
-                const stream=document.getElementById("stream1").value;
-                rows += `<tr><td><input class="c" type="checkbox" /><td>${roll}</td><td>${name}</td><td>${year}</td><td>${stream}</td></tr>`;
-                t.deleteRow(i);
-                $(rows).appendTo("#tableid");
-                
+                if(n[i].checked)
+                {
+                    let id = n[i].parentNode.parentNode.getAttribute('data-id');
+                    let col = n[i].parentNode.parentNode.getAttribute('data-col');
+                    const name = document.getElementById("name1").value;
+                    const num = document.getElementById("number1").value;
+                    const email = document.getElementById("email1").value;
+                    if(email === "" || name === "" || num === "") { alert("All fields are mandatory!"); }
+                    else if(ValidateEmail(email)) {}
+                    else if(num < 6000000000 || num > 9999999999) { alert("Please enter valid mobile number!"); }
+                    else {
+                        db.collection(col).doc(id).set({
+                            name: name,
+                            email: email,
+                            mobile: num,
+                        }, { merge: true }).then(function() {
+                            const amount = n[i].parentNode.nextSibling.nextSibling.nextSibling.nextSibling.innerText.replace(/[^0-9]/g,'');;
+                            const type = n[i].parentNode.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.innerText;
+                            let data= `<tr><td><input class="c" type="checkbox" /><td>${name}</td><td>${num}</td><td>${email}</td><td>₹${amount}</td><td>${type}</td></tr>`;
+                            t.deleteRow(i);
+                            $(data).appendTo("#tableid");
+                        });
+                    }   
+                }
             }
         }
+    }
+
+    function ValidateEmail(email) {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+            return(false);
+        }
+        alert("You have entered an invalid email address!");
+        return(true);
     }
 })
