@@ -2,28 +2,37 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Login Form</title>
+    <title>Charity - Web | Admin</title>
     <link rel="stylesheet" href="styles/login.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap" 
-    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <a style="position: fixed; left: 1em; top: 1em; font-size: 25px;" href="index.html"><button style="background: transparent; border: none; cursor: pointer;" class="fa fa-home"> Home</button></a>
     <div class="form">
         <div class="faceContainer">
             <div class="eye" id="left"></div>
             <div class="eye" id="right"></div>
             <div class="mouth"></div>
         </div>
-        <h1>Login</h1>
+        <h1>Admin Login</h1>
         <input type="email" id="email" autocomplete="off" required>
         <label for="email" class="labelEmail">
-            <span class="contentEmail">Email</span></label>
+            <span class="contentEmail">Email</span>
+        </label>
         <input type="password" id="pass" required>
         <label for="pass" class="labelPass">
-            <span class="contentPass">Password</span></label>
+            <span class="contentPass">Password</span>
+        </label>
         <button class="btn">
-            <a href="adminindex.html"><span>Login</span></button></a>
+            <span>Login</span>
+        </button>
     </div>
-    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+    <script src="scripts/login.js"></script>
 </body>
 </html>
